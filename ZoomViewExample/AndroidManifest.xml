@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest android:versionCode="1" android:versionName="1.0"
+    package="org.pskink.zoomview" xmlns:android="http://schemas.android.com/apk/res/android">
+    <uses-sdk android:minSdkVersion="8" android:targetSdkVersion="8"/>
+    <application android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="ZoomView">
+        <activity android:name="org.pskink.zoomview.Test">
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER"/>
+                <action android:name="android.intent.action.MAIN"/>
+            </intent-filter>
+        </activity>
+    </application>
+</manifest>

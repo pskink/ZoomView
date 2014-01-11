@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item android:id="@+id/big" android:title="big"></item>
+    <item android:id="@+id/small" android:title="small"></item>
+    <item android:id="@+id/tall" android:title="tall"></item>
+    <item android:id="@+id/wide" android:title="wide"></item>
+    <item android:id="@+id/image" android:title="image"></item>
+</menu>
