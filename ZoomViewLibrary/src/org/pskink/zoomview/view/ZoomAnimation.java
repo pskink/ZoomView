@@ -11,28 +11,28 @@ import android.view.animation.AnimationUtils;
 import android.view.animation.Transformation;
 
 public class ZoomAnimation extends Animation {
-	private final static String TAG = "ZoomAnimation";
-	
+    private final static String TAG = "ZoomAnimation";
+
     private static final float MAX_ALPHA = 0.75f;
     private float mFrom;
     private float mTo;
     private int mAlpha;
-	private ZoomView mScroll;
+    private ZoomView mScroll;
     private Path mPath;
     private Paint mPathPaint;
 
     public ZoomAnimation(ZoomView scroll) {
-    	mScroll = scroll;
-		int duration = 2 * scroll.getResources().getInteger(android.R.integer.config_longAnimTime);
+        mScroll = scroll;
+        int duration = 2 * scroll.getResources().getInteger(android.R.integer.config_longAnimTime);
         setDuration(duration);
-        
-		mPathPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-		mPathPaint.setStyle(Style.STROKE);
+
+        mPathPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        mPathPaint.setStyle(Style.STROKE);
         mPathPaint.setStrokeCap(Cap.SQUARE);
         mPath = new Path();
         mPath.addCircle(0, 0, 16, Direction.CCW);
     }
-    
+
     public void start(float scale, boolean zoomIn, float minScale, float maxScale) {
         mFrom = scale;
         mTo = scale < (maxScale + minScale) / 2? maxScale : minScale;
@@ -40,7 +40,7 @@ public class ZoomAnimation extends Animation {
         long t = AnimationUtils.currentAnimationTimeMillis();
         getTransformation(t, null);
     }
-    
+
     @Override
     protected void applyTransformation(float interpolatedTime, Transformation t) {
         float time = interpolatedTime;
@@ -51,7 +51,7 @@ public class ZoomAnimation extends Animation {
         mScroll.setZoom(mFrom + (mTo - mFrom) * interpolatedTime, false);
     }
 
-	public void drawFrame(Canvas canvas, float pivotX, float pivotY) {
+    public void drawFrame(Canvas canvas, float pivotX, float pivotY) {
         canvas.save();
         canvas.translate(pivotX, pivotY);
         // draw white outline
